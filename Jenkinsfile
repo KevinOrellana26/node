@@ -182,7 +182,7 @@ pipeline {
                 }
             }
             steps {
-                sh(returnStdout: false, returnStatus:true, script """#!/bin/bash
+                sh(returnStdout: false, returnStatus:true, script: """#!/bin/bash
                     terraform apply -input=false -lock=false tfplan && \
                     terraform show
                 """.stripIndent())
