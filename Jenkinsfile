@@ -22,6 +22,7 @@ pipeline {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generation plan')
         string(name: 'SECRET_NAME', defaultValue: params.SECRET_NAME ?: 'kevin-key-sa', description: 'AWS Secret')
 
+        string(name: 'AWS_REGION', defaultValue: params.AWS_REGION ?: 'eu-central-1', description: 'AWS Region')
         string(name: 'NODE_NAMESPACE', defaultValue: params.NODE_NAMESPACE ?: 'node', description: 'Namespace for Node')
 
         string(name: 'EKS_CLUSTER_NAME', defaultValue: params.EKS_CLUSTER_NAME ?: 'infra-syndeno', description: 'Cluster Name (must be a domain)')
@@ -31,7 +32,8 @@ pipeline {
         TF_OUTPUT="$WORKSPACE/terraform.output"
 
         TF_VAR_namespace="${env.NODE_NAMESPACE}"
-
+        
+        TF_VAR_region="${env.AWS_REGION}"
         TF_VAR_cluster_name="${env.EKS_CLUSTER_NAME}"
     }
 
