@@ -30,9 +30,9 @@ provider "aws" {
 
 //////////////////// Deployment
 resource "kubernetes_deployment" "node_deploy" {
-  depends_on = [
-    kubernetes_namespace.default
-  ]
+  # depends_on = [
+  #   kubernetes_namespace.default
+  # ]
   metadata {
     name      = "node"
     namespace = var.namespace
@@ -66,9 +66,9 @@ resource "kubernetes_deployment" "node_deploy" {
 
 //////////////////// Service
 resource "kubernetes_manifest" "node_service" {
-  depends_on = [
-    kubernetes_namespace.default,
-  ]
+  # depends_on = [
+  #   kubernetes_namespace.default,
+  # ]
   manifest = yamldecode(templatefile(
     "${path.module}/manifests/node-service.tpl.yaml",
     {
@@ -79,9 +79,9 @@ resource "kubernetes_manifest" "node_service" {
 
 //////////////////// Ingress
 resource "kubernetes_manifest" "node_ingress" {
-  depends_on = [
-    kubernetes_namespace.default,
-  ]
+  # depends_on = [
+  #   kubernetes_namespace.default,
+  # ]
   manifest = yamldecode(templatefile(
     "${path.module}/manifests/node-ingress.tpl.yaml",
     {
