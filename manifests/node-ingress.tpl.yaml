@@ -21,3 +21,6 @@ spec:
             name: node
             port:
               number: 8888
+  tls:
+  - hosts: ["node.plt.ko.syndeno.net"]
+    secretName: "node.plt.ko.syndeno.net"    
