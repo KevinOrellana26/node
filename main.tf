@@ -1,5 +1,5 @@
 variable "namespace" {
-  default = "node"
+  default = "aplicaciones-comunes"
   type    = string
 }
 
