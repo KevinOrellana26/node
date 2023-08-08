@@ -88,8 +88,6 @@ pipeline {
             when {
                 expression {
                     params.action == 'default' ||
-                    params.action == 'update_scm' ||
-                    params.action == 'build_image' ||
                     params.action == 'main_plan' ||
                     params.action == 'main_refresh' ||
                     params.action == 'main_destroy'
