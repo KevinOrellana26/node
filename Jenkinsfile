@@ -20,12 +20,12 @@ pipeline {
         )
 
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generation plan')
-        string(name: 'SECRET_NAME', defaultValue: params.SECRET_NAME ?: 'kevin-key-sa', description: 'AWS Secret')
+        string(name: 'SECRET_NAME', defaultValue: params.SECRET_NAME ?: 'upgrade-ci-key', description: 'AWS Secret')
 
-        string(name: 'AWS_REGION', defaultValue: params.AWS_REGION ?: 'eu-central-1', description: 'AWS Region')
-        string(name: 'NODE_NAMESPACE', defaultValue: params.NODE_NAMESPACE ?: 'node', description: 'Namespace for Node')
+        string(name: 'AWS_REGION', defaultValue: params.AWS_REGION ?: 'eu-west-3', description: 'AWS Region')
+        string(name: 'NODE_NAMESPACE', defaultValue: params.NODE_NAMESPACE ?: 'aplicaciones-comunes', description: 'Namespace for Node')
 
-        string(name: 'EKS_CLUSTER_NAME', defaultValue: params.EKS_CLUSTER_NAME ?: 'infra-syndeno', description: 'Cluster Name (must be a domain)')
+        string(name: 'EKS_CLUSTER_NAME', defaultValue: params.EKS_CLUSTER_NAME ?: 'syndeno', description: 'Cluster Name (must be a domain)')
     }
 
     environment {
