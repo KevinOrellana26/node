@@ -22,11 +22,11 @@ provider "aws" {
 }
 
 //////////////////// Namespace
-resource "kubernetes_namespace" "default" {
-  metadata {
-    name = var.namespace
-  }
-}
+# resource "kubernetes_namespace" "default" {
+#   metadata {
+#     name = var.namespace
+#   }
+# }
 
 //////////////////// Deployment
 resource "kubernetes_deployment" "node_deploy" {
